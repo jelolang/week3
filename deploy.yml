@@ -33,7 +33,7 @@ metadata:
 spec:
   selector:
     app: echo-application
-    env: green
+    env: blue
   ports:
   - name: http
     port: 80
