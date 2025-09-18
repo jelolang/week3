@@ -1,0 +1,68 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-deploy
+  labels:
+    app: echo-application
+    env: blue
+    version: v1.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo-application
+      env: blue
+  template:
+    metadata:
+      labels:
+        app: echo-application
+        env: blue
+        version: v1.0.0
+    spec:
+      containers:
+      - name: echoapp
+        image: europe-southwest1-docker.pkg.dev/quixotic-height-471112-b4/week3/micro:test
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deploy
+  labels:
+    app: echo-application
+    env: green
+    version: v1.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: echo-application
+      env: green
+  template:
+    metadata:
+      labels:
+        app: echo-application
+        env: green
+        version: v1.0.0
+    spec:
+      containers:
+      - name: echoapp
+        image: europe-southwest1-docker.pkg.dev/quixotic-height-471112-b4/week3/micro:test
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echoapp-svc
+spec:
+  selector:
+    app: echo-application
+    env: blue
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: NodePort
