@@ -12,7 +12,7 @@ env:
   IMAGE: micro # image name
   IMAGE_TAG: test # image tag
   GAR_ZONE: europe-southwest1
-  GAR_REPO: europe-southwest1 # artifact registry repository
+  GAR_REPO: week3 # artifact registry repository
 
 jobs:
   setup-build-publish-deploy:
