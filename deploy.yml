@@ -22,34 +22,7 @@ spec:
     spec:
       containers:
       - name: echoapp
-        image: europe-southwest1-docker.pkg.dev/quixotic-height-471112-b4/week3/micro:test
-        ports:
-        - containerPort: 80
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: green-deploy
-  labels:
-    app: echo-application
-    env: green
-    version: v1.0.0
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: echo-application
-      env: green
-  template:
-    metadata:
-      labels:
-        app: echo-application
-        env: green
-        version: v1.0.0
-    spec:
-      containers:
-      - name: echoapp
-        image: europe-southwest1-docker.pkg.dev/quixotic-height-471112-b4/week3/micro:test
+        image: europe-southwest1-docker.pkg.dev/quixotic-height-471112-b4/week3/main:main
         ports:
         - containerPort: 80
 ---
