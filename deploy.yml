@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       app: echo-application
-      env: blue
+      env: green
   template:
     metadata:
       labels:
